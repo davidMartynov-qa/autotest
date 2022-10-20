@@ -31,7 +31,6 @@ def test_first_test():
     # Поиск кнопки товара и клик по этой кнопке
     item_add_button = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/a[1]")
     item_add_button.click()
-    time.sleep(3)
     
     # Описание товара
     title_text = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]")
@@ -39,7 +38,7 @@ def test_first_test():
     title_text2 = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]")
 
 
-    assert title_text.text == "Молоко Экомилк пастер., жирн. 3,2%, 93 мл"
+    assert title_text.text == "Молоко Экомилк пастер., жирн. 3,2%, 930 мл"
     assert title_text2.text == "ПродуктыМолочные продуктыМолоко"
 
 if __name__ == '__main__':
