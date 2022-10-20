@@ -1,3 +1,4 @@
+from os import times_result
 import time
 
 from selenium.webdriver.common.by import By
@@ -21,25 +22,29 @@ def test_first_test():
     item_name.click()
 
     # Поиск элемента search и действия с формой
-    input_search = driver.find_element(By.XPATH, "/html/body/div[5]/div[1]/header/span/div/div[2]/form/div/div/input")
+    input_search = driver.find_element(By.CSS_SELECTOR, value='[class="b-header__search-input"]')
     input_search.send_keys("Молоко")
+		
 
     # Клик по форме после действия с формой
-    btn_search = driver.find_element(By.XPATH, "/html/body/div[5]/div[1]/header/span/div/div[2]/form/button")
+    btn_search = driver.find_element(By.CSS_SELECTOR, value='[class="b-header__search-button"]')
     btn_search.click()
-
+    time.sleep(1)
     # Поиск кнопки товара и клик по этой кнопке
-    item_add_button = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[2]/a[1]")
+    item_add_button = driver.find_element(By.CSS_SELECTOR, value='[class="b-image__root"]')
     item_add_button.click()
+    time.sleep(1)
     
     # Описание товара
-    title_text = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]")
+    title_text = driver.find_element(By.CSS_SELECTOR, value='[class="p-offer__description"]')
 
-    title_text2 = driver.find_element(By.XPATH, "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]")
+    title_text2 = driver.find_element(By.CSS_SELECTOR, value='[class="p-offer__segment"]')
 
 
-    assert title_text.text == "Молоко Экомилк пастер., жирн. 3,2%, 930 мл"
+    assert title_text.text == "Молоко Экомилк пастер., жирн. 3,2%, 93 мл"
     assert title_text2.text == "ПродуктыМолочные продуктыМолоко"
+
+    driver.close()
 
 if __name__ == '__main__':
     test_first_test()
