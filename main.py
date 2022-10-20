@@ -26,7 +26,7 @@ def test_first_test():
     input_search.send_keys("Молоко")
 		
 
-    # Клик по форме после действия с формой
+    # Клик по searchgi после действия с формой
     btn_search = driver.find_element(By.CSS_SELECTOR, value='[class="b-header__search-button"]')
     btn_search.click()
     time.sleep(1)
